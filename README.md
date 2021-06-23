@@ -1,2 +1,4 @@
 # jwst-fgstoj-tools
-Repository for maintaining tools related to JWST FGS-to-J Frame calibration
+This repository serves as a central place for maintaining tools related to the JWST FGS-toJ frame calibration.
+
+#FGStoJ_Calibration.py
