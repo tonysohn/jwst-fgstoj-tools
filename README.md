@@ -8,5 +8,5 @@ This tool is for solving the matrix equation to obtain the FGSics to J-frame mat
     
     (2) This tool is for solving the matrix equation in its full form - see the accompanying PDF file for details on how the matrix equation is set up and how to solve it. The solution requires at least 3 calibration sources.
 
-- **`VtoJ_siaf.py`**
-This tool was written to calculate the `V2Ref, V3Ref, V3IdlYAngle` SIAF parameters for the psudo-aperture J-FRAME for FGS1. Everytime the FGS-to-J matrix is updated, this tool must be run to update these SIAF parameters for the J-FRAME aperture. The `vtoj_siaf.ipynb` Jupyter notebook provides examples on how to run the tool. 
+- **`VtoJ_SIAF.py`**
+This tool was written to calculate the `V2Ref, V3Ref, V3IdlYAngle` SIAF parameters for the psudo-aperture J-FRAME for FGS1. Everytime the FGS-to-J matrix is updated, this tool must be run to update these SIAF parameters for the J-FRAME aperture. The `VtoJ_SIAF.ipynb` Jupyter notebook provides examples on how to run the tool. 
