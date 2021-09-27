@@ -29,7 +29,7 @@ from astropy import constants as const
 # eps = the smallest representable float
 eps = np.finfo(float).eps
 
-def fgs_to_jframe(xFGS_meas, yFGS_meas, RA, DEC, PA, qEST, SCVel):
+def fgs_to_jframe_full(xFGS_meas, yFGS_meas, RA, DEC, PA, qEST, SCVel):
 
     """Compute the FGS to J frame matrix.
 
