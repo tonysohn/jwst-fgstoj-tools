@@ -2,9 +2,7 @@
 This repository serves as a central place for maintaining tools related to the JWST FGS-toJ frame calibration. Below are the high-level descriptions on what each tool does and how to use them.
 
 - **`fgstoj_calibration.py`**
-This code includes tools for solving the matrix equation to obtain the FGSics to J-frame matrix. Example usages are shown below:
-
--- blah blah
+This code includes tools for solving the matrix equation to obtain the FGSics to J-frame matrix. 
 
     (1) The method provided by NGAS in their matlab tool `FGStoJ_Calibration.m`. This tool does NOT solve the full matrix equation. Instead, it calculates the angular difference between the (x_FGSidl, y_FGSidl) coordinates predicted using the old FGS-to-J matrix and the observed positions. This angular difference is applied to the old matrix to come up with a new matrix. For this reason, the tool works with any number of calibration sources.
     
