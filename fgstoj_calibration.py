@@ -106,7 +106,7 @@ def read_telemetry(telemetry_csvfile, average=True, obstime_mjd=None):
     return qEST, SCVel
 
 
-def fgstoj_offset(xFGS_meas, yFGS_meas, RA, DEC, PA, qEST, SCVel):
+def fgstoj_offset(xFGS_meas, yFGS_meas, RA, DEC, PA, qEST, SCVel, FGStoJ_old=None):
 
     """Compute the FGS to J frame matrix using the offset method provided by NGAS.
        This requires a pre-loaded FGS-to-J matrix since the algorithm calculates
@@ -129,22 +129,26 @@ def fgstoj_offset(xFGS_meas, yFGS_meas, RA, DEC, PA, qEST, SCVel):
         Quaternion that specifies telescope attitude
     SCVel : ndarray with size of 3
         Spacecraft velocity relative to the sun in ECI km/s
+    FGStoJ_old : optional 3x3 numpy array with the old FGS1ics-to-J matrix
 
     Returns
     -------
-    FGS1ic_to_J : ndarray
+    FGS1ics_to_J : ndarray
         FGS to J frame alignment matrix, 3x3
     theta : ndarray
 
     """
 
-    #!!!
-    #!!! Hard-coded: Rev. H of ACSK::attDETrHatFGStoJ
-    #!!! UPDATE this matrix if necessary. Correct as of Aug 2021.
-    #!!!
-    FGS1ics_to_J_ref = np.array([ [-0.000873067342356,  0.003603343153256,  0.999993131751562],
-                                  [ 0.999757625459087, -0.021994952998128,  0.000952115833223],
-                                  [ 0.021998233057671,  0.999751583464858, -0.003583259602304] ])
+    if FGStoJ_old is None:
+        #
+        #!!! Rev. H of ACSK::attDETrHatFGStoJ
+        #!!! Onboard as of Oct 28, 2021
+        #
+        FGS1ics_to_J_ref = np.array([ [-0.000873067342356,  0.003603343153256,  0.999993131751562],
+                                      [ 0.999757625459087, -0.021994952998128,  0.000952115833223],
+                                      [ 0.021998233057671,  0.999751583464858, -0.003583259602304] ])
+    else:
+        FGS1ics_to_J_ref = FGStoJ_old
 
     if isinstance(xFGS_meas, list) or isinstance(xFGS_meas, np.ndarray):
         mm = len(xFGS_meas)
