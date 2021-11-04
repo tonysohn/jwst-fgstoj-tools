@@ -17,6 +17,7 @@ import numpy as np
 from scipy.linalg import expm, lstsq, pinv
 from scipy.sparse.linalg import lsqr
 from scipy.spatial.transform import Rotation as R
+from astropy.io import ascii
 from astropy import units as u
 from astropy import constants as const
 from astropy.time import Time
@@ -72,7 +73,7 @@ def read_telemetry(telemetry_csvfile, average=True, obstime_mjd=None):
     time_mjd = time_iso
     time_mjd.format='mjd'
     t['MJD'] = time_mjd.value
-    t.sort('time_mjd') # Sort table by time (although, it already should be)
+    t.sort('MJD') # Sort table by time (although, it already should be)
 
     # Telemetry parameters we're interested in. In principle, we can change this
     # to get average or interplated results for any set of parameters.
