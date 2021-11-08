@@ -15,6 +15,7 @@ import sys
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 
+
 def get_vtoj_siaf(FGS1_V2Ref, FGS1_V3Ref, FGS1_V3IdlYAngle, FGStoJ_matrix):
     """
      Description
@@ -74,6 +75,7 @@ def get_vtoj_siaf(FGS1_V2Ref, FGS1_V3Ref, FGS1_V3IdlYAngle, FGStoJ_matrix):
 
     return v2ref, v3ref, v3angle, R_VtoJ
 
+
 def get_vtoj_siaf_rotation(FGS1_V2Ref, FGS1_V3Ref, FGS1_V3IdlYAngle, FGStoJ_matrix):
     """
     Description
@@ -85,7 +87,9 @@ def get_vtoj_siaf_rotation(FGS1_V2Ref, FGS1_V3Ref, FGS1_V3IdlYAngle, FGStoJ_matr
     -------
     Do NOT use this function for deriving final values of VtoJ.
     Use the get_gtoj_siaf function above instead. This function is provided as
-    an alternative version which uses scipy.spatial.transform.Rotation.
+    an alternative version which uses scipy.spatial.transform.Rotation, and
+    provides an external check. This functino is only to be used for
+    testing purpose.
 
     Input Parameters
     ----------------
@@ -110,7 +114,9 @@ def get_vtoj_siaf_rotation(FGS1_V2Ref, FGS1_V3Ref, FGS1_V3IdlYAngle, FGStoJ_matr
     bb = -FGS1_V2Ref/3600.
     cc =  FGS1_V3IdlYAngle
     r = R.from_euler('xyz', [aa,bb,cc], degrees=True)
-    zxy = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+    zxy = np.array([[0, 0, 1],
+                    [1, 0, 0],
+                    [0, 1, 0]])
     R_FGStoV = np.dot(zxy, r.as_matrix().T)
     R_VtoFGS = R_FGStoV.T
     print('R_FGStoV = \n', R_FGStoV)

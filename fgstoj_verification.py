@@ -40,9 +40,9 @@ def verify(FGStoJ_old, FGStoJ_new):
     j3b = np.degrees(np.arctan2(Mb[1,2],Mb[0,2]))
 
 
-    print("----------------------")
-    print(" Input Matrix 1 (Old) ")
-    print("----------------------")
+    print("--------------------------")
+    print(" Input Matrix 1 (Onboard) ")
+    print("--------------------------")
     print(Ma)
 
     print("")
@@ -52,9 +52,9 @@ def verify(FGStoJ_old, FGStoJ_new):
     print("J3: {0:9.6f} deg".format(j3a))
     print("")
 
-    print("----------------------")
-    print(" Input Matrix 2 (New) ")
-    print("----------------------")
+    print("-------------------------------------")
+    print(" Input Matrix 2 (This patch request) ")
+    print("-------------------------------------")
     print(Mb)
 
     print("")
@@ -68,7 +68,7 @@ def verify(FGStoJ_old, FGStoJ_new):
     print(" Matrix Comparisons ")
     print("--------------------")
     print("Overall angular separation between Matrices 1 and 2: {0:9.6f} deg".format(rot_ab))
-    print("Offsets in each axis:")
+    print("Implied rotations about each axis:")
     print("J1 offset: {0:9.6f} deg".format(j1b-j1a))
     print("J2 offset: {0:9.6f} deg".format(j2b-j2a))
     print("J3 offset: {0:9.6f} deg".format(j3b-j3a))
