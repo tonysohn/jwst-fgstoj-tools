@@ -11,3 +11,7 @@ This code includes tools for solving the matrix equation to obtain the FGSics to
 
 - **`vtoj_siaf.py`**
 This tool was written to calculate the `V2Ref, V3Ref, V3IdlYAngle` SIAF parameters for the psudo-aperture J-FRAME for FGS1. Everytime the FGS-to-J matrix is updated, this tool must be run to update these SIAF parameters for the J-FRAME aperture. The `vtoj_siaf.ipynb` Jupyter notebook provides examples on how to run the tool.
+
+
+- **`fgs2tofgs1_calibration.py`**
+This tool is for calculating the FGS2 to FGS1 matrix. Required inputs are SIAF alignment parameters \[V2Ref, V3Ref, V3IdlYAngle\] (must be in this order) for FGS2 and FGS1.
